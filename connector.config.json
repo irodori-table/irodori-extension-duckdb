@@ -216,7 +216,7 @@
   },
   "source": {
     "marketplaceId": "irodori.duckdb",
-    "repository": "https://github.com/hjosugi/irodori-extension-duckdb",
+    "repository": "https://github.com/irodori-table/irodori-extension-duckdb",
     "knowledgeEngineStatus": "verified",
     "adapter": "db/duck.rs",
     "adapterSha256": "c828ca26090f8699aa2a5e04cca0f328732469aa938b47ecd2bd198877c104c0",
