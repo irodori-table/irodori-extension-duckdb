@@ -941,7 +941,7 @@ dependencies = [
 
 [[package]]
 name = "irodori-extension-duckdb"
-version = "0.1.5"
+version = "0.1.6"
 dependencies = [
  "duckdb",
  "irodori-connector-abi",
