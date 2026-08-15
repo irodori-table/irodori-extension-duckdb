@@ -1,3 +1,4 @@
+use irodori_connector_abi::option_string;
 use std::collections::{BTreeMap, HashMap};
 use std::sync::{Mutex, OnceLock};
 
@@ -241,27 +242,6 @@ fn looks_like_access_key_id(value: &str) -> bool {
 /// `abi::profile_field` looks at the request and its `profile`, but connector
 /// options arrive under `profile.options`, so a credential supplied as an
 /// option would be invisible to it.
-fn option_string(request: &Value, fields: &[&str]) -> Option<String> {
-    let containers = [
-        Some(request),
-        request.get("profile"),
-        request.get("options"),
-        request.get("secrets"),
-        request.get("profile").and_then(|p| p.get("options")),
-        request.get("profile").and_then(|p| p.get("secrets")),
-    ];
-    containers.into_iter().flatten().find_map(|container| {
-        fields.iter().find_map(|field| {
-            container
-                .get(*field)
-                .and_then(Value::as_str)
-                .map(str::trim)
-                .filter(|value| !value.is_empty())
-                .map(ToOwned::to_owned)
-        })
-    })
-}
-
 fn sql_string(value: &str) -> String {
     format!("'{}'", value.replace('\'', "''"))
 }
