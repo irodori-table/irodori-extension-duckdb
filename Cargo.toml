@@ -29,7 +29,7 @@ bundled-duckdb = ["duckdb/bundled"]
 
 [dependencies]
 irodori-connector-abi = { git = "https://github.com/irodori-table/irodori-kit", tag = "v0.9.1" }
-duckdb = { version = "1", default-features = false }
+duckdb = { version = "1", default-features = false, features = ["download-lib"] }
 serde_json = "1"
 
 [profile.dev.package."*"]
